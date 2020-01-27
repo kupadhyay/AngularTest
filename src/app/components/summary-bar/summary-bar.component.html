@@ -1,0 +1,17 @@
+<section class="summarySection">
+    <h3 [ngStyle]="{marginTop: '15px'}">Your Order:</h3> 
+    <div>
+        <ng-container *ngFor="let order of addObject">
+            <li *ngIf="order || order.length > 0" 
+               [class.displayNone] = "orederRemovedParent" >
+              <span class="inline">
+                {{order.name}} {{order.size | firstcharacter}}
+              </span>
+              <span class="inline">
+                <app-plus-minus (orederremoved)="onOrderRemoved($event)"></app-plus-minus>
+              </span>
+            </li>
+          </ng-container>
+    </div>
+    <app-cart-value></app-cart-value>
+</section>

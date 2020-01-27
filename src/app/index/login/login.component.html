@@ -1,0 +1,23 @@
+<div class="column is-half">
+    <h1>Login</h1>
+    <div class="field">
+        <div class="control">
+        <input [(ngModel)]="postData.email" class="input " placeholder="Email" type="text">
+    </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <input [(ngModel)]="postData.password" class="input" placeholder="Password" type="password"></div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <span class='has-text-danger'>{{errorText}}</span>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <a routerLink="/forgot">Forgot password?</a>
+        </div>
+    </div>
+    <a (click)="loginAction()" class="button is-primary">Login</a>
+ </div>

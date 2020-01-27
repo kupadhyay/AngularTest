@@ -1,0 +1,6 @@
+<div style="width:100px;">
+    <button (click)="minus(item,$event)" class="btn btn-default" [class.disablePointer] = "isMinimum"
+     [disabled]="isMinimum">-</button>
+    <input  [(ngModel)]="item" type="text" style="width:40px;"/>
+    <button (click)="plus(item,$event)" class="btn btn-default">+</button>
+</div>

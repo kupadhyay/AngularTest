@@ -1,0 +1,36 @@
+<section class="section pizzaSection">
+    <div class="venue-showcase">
+       <div class="level is-hidden-mobile">
+          <div class="level-left">
+             <div class="level-item">
+                <h2 class="title is-6 has-text-left">Pizza Menu</h2>
+             </div>
+          </div>
+       </div>
+       <div class="columns is-multiline">
+          <div class="column is-12-mobile is-4-tablet is-4-desktop updateWidth"  *ngFor="let menu of pizzaData" [ngStyle]="{border: '1px solid lightgray'}">
+             <div class="card is-shadowless is-slightly-rounded">
+                <div class="card-image">
+                   <img src={{menu.img}} alt="Pizza" class="img-container">
+                </div>
+                <div class="card-content">
+                   <div class="content">
+                      <p>
+                         <span>
+                              Name: {{menu.name}}
+                         </span> <br>
+                         <span>
+                              Size: {{menu.size}}
+                        </span> <br>
+                        <span>
+                              Price: {{menu.price}}
+                              <button class="buttonStyle" (click)="buyPizza(menu)"> Buy </button>
+                        </span> <br>
+                      </p>
+                   </div>
+                </div>
+             </div>
+          </div>
+         </div>
+     </div>
+ </section>
