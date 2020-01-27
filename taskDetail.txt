@@ -1,0 +1,157 @@
+=> Angular Routing video 1: https://www.9lessons.info/2018/09/angular-lazyload-routing-route-guards.html
+
+=> ng new angular-routing-project --routing --style=scss
+=> cd angular-routing-project
+=> npm audit fix
+
+=> will create two main component
+	1) index 
+		- login
+		- forgot
+		- register
+	2) Home
+		- dashboard
+		- settings
+		- user
+	3) Page not found
+=> will add in route constant.
+=> add some css 
+=> general routing will work.
+
+=> implementing lazy loading with more child component
+=> for that will create module for index/home component.
+=> will create route file for both as well as for app.route.ts
+
+=> in first video we created two main componenet with module and route (home & index)
+=> home and index have child component.
+=> created route for home and index module and add this main route in to app module.
+
+============================================
+Video:2 https://www.9lessons.info/2018/09/angular-route-guards-child-components.html
+=>  first part only page created and if pass url in browser, page will open
+=> will add routerLink to navigate each tab.
+=> set canActivate method for both route module
+=> set login data in session and on that base return key.
+=> login and logout update sessionStorage value.
+
+=====================
+Video:3 https://www.9lessons.info/2019/05/angular-routing-with-lazy-loading.html
+=> will load module on demand
+=> will create module for each component
+=> and need to export this compononent in module, also add in declaration
+=> with loadChildren can achive this thing.
+=> will create component folder for common component like logo,name
+=> for lazy routing
+	- will create module for each comp
+	- will create route file for same and for default path it will load that same comp.
+	- in module file, imports [Router.forChild(routeConstantName)]
+	
+=> in normal routing we are calling component for path match and load all children.
+=> in lazy loading we are not calling component, loading module and that module will load default comp.
+
+=> create route file for each loadchildren component
+	dashboard.routes.ts
+	products.routes.ts
+	settings.routes.ts
+	
+	login.routes.ts
+	signup.routes.ts
+	forgot.routes.ts
+=> will remove child component from index.module and replace with self component and export it.
+
+https://stackoverflow.com/questions/49056000/all-of-my-json-files-have-problems-loading-reference-schema-from-schemastore-az
+
+srinavs git up for above 3 video:
+https://github.com/srinivastamada/angular-routing/blob/master/src/app/app.module.ts
+
+======
+=> tried with BULMHA popup modal, but it opens twice and it is not expected behaviour.
+=> 
+
+===================08-Dec-2019========
+
+-> first create component and then creat module for same..for lazy loading...
+like:
+	ng g c orderPizza
+	ng g m orderPizza --no-spec
+	
+-> create route file manually and add component for default path.
+-> Don't add all component in app module...
+-> Add required component in respective module only.
+-> if we have added module/component in app module then it will access in other module..?
+	Ans: for custom component should not add in app module..
+		: for default module like formModule..? - may not add in app module..
+			- it should be add in respective module.
+			
+-> work on let, const and variable define in angular.
+--------------
+19-Dec-2019
+-> Pending work:
+
+- if user buy any pizza, add that pizza detail and total value in cart summary + summary page.
+- cart value css differ in both location. in terms of width/color
+- Buy button -> click hanlder -> current object -> fetch that value.
+
+-> pizza list component
+-> cart value component
+
+pass data from pizza list to cart component.
+
+1) subject with service
+	-> form submit data to service->add()
+	-> in service this add method has, subject with next, so when any data comes it will trigger event to
+		respective subscriber.
+	-> in another component we have subscribe this method on init.
+
+	-> subject with .asObservable when subject is private property for that class.
+	-> if subject if public no need to use .asObservable()
+	*******
+	in input/output need to maintain relationship and if we want to pass data to multiple,
+	then it's good to use service.
+	
+	- provideit root is singleton service instance. so no need to add in app module 
+	- it's at root level so it can access in any component.
+2) Input /output example
+	
+3) Viewchild/ViewChildren:
+	- any element with #test
+	- @ViewChild('test') testRef: ElementRef;
+		this.testRef.focus();
+	- like getElementByid selector.
+	- Can also Viewchild to component,form (form reset)
+	- @ViewChild('test') dateref: DateViewrComponent;
+	- if component have two other child component. and want to view both then use @viewChildern
+	- with querylist and convert into array.
+
+-----
+create pipe / direactive for first character
+https://medium.com/@riccardopolacci/angular-custom-pipes-best-practices-3de9ca77f01b 
+Margerita (M)
+*** Note: to access custom pipe, create shared module and declare that pipe,directive,helper...
+			and export it.
+		-> use this shared module in respective module then this pipe/service can accesible in component.	
+Below component:
+ - <Number> +
+ https://stackoverflow.com/questions/41957440/angular-plus-minus-toggle
+ 
+-> work on component
+-> buy button collect json data, what user has selected and send request.
+-> on delete ask confirmation, r u sure?
+-> succesfull order request show notification as well as error message.
+
+Error:
+ngModel error , than add FormsModule in that page module file.
+
+stop propogation use this directive: https://stackoverflow.com/questions/35274028/stop-mouse-event-propagation
+
+
+
+============todo==================
+1) on zero , remove element ,  event emmiter : https://stackblitz.com/edit/angular-output-example?file=src%2Fapp%2Fparent%2Fparent.component.ts
+2) pizza add+ price, send input value
+3) checkout order fetch all data to send backend..
+4) successful notification.
+5) todo best example: https://stackblitz.com/edit/angular-eventemitter-todo?file=app%2Ftodos%2Ftodos.component.html
+
+
+github username/password: kishan110/ksu!110R
